@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 10px; background-color: transparent; }
+  
+  /* Horizontal scroll container */
+  .carousel-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 15px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Individual Card Styling */
+  .card {
+    min-width: 250px;
+    max-width: 250px;
+    height: 380px;
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+    text-decoration: none; /* Makes entire card clickable */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .card:hover { transform: scale(1.02); }
+
+  .logo-area {
+    height: 60px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-area img { max-height: 100%; max-width: 100%; border-radius: 4px; }
+
+  h2 {
+    font-size: 1.4rem;
+    margin: 10px 0;
+    line-height: 1.2;
+    height: 3.6em; /* Limits to ~50-60 characters height */
+    overflow: hidden;
+  }
+
+  .description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-top: auto;
+    /* Forces exactly 4 lines of text */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Individual Colors */
+  .color-1 { background-color: #6a1b9a; } /* Purple */
+  .color-2 { background-color: #546e7a; } /* Grey/Blue */
+  .color-3 { background-color: #c2185b; } /* Pink/Red */
+  .color-4 { background-color: #d32f2f; } /* Bright Red */
+  .color-5 { background-color: #e65100; } /* Orange */
+
+  /* Hide scrollbar for clean look */
+  .carousel-container::-webkit-scrollbar { height: 6px; }
+  .carousel-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+</style>
+</head>
+<body>
+
+<div class="carousel-container">
+
+  <a href="YOUR_LINK_HERE" target="_blank" class="card color-1">
+    <div class="logo-area">
+      <img src="https://via.placeholder.com/60" alt="Logo">
+    </div>
+    <h2>Optional Touch Screen Laptops</h2>
+    <div class="description">
+      Available in 12, 14, and 15-inch sizes. Optimized for high performance and daily tasks. Multitouch support included for all models.
+    </div>
+  </a>
+
+  <a href="YOUR_LINK_HERE" target="_blank" class="card color-2">
+    <div class="logo-area">
+      <img src="https://via.placeholder.com/60" alt="Logo">
+    </div>
+    <h2>Everyday Laptops for Home & School</h2>
+    <div class="description">
+      Great for students and remote work. Multitask with ease using the latest processors. Affordable styles for every budget and need.
+    </div>
+  </a>
+
+  <a href="YOUR_LINK_HERE" target="_blank" class="card color-3">
+    <div class="logo-area">
+      <img src="https://via.placeholder.com/60" alt="Logo">
+    </div>
+    <h2>On-the-Go Ultrabooks for Travel</h2>
+    <div class="description">
+      Super thin and light design. Extra-long battery life for long flights. Touch screen options available for creative professionals.
+    </div>
+  </a>
+
+  <a href="YOUR_LINK_HERE" target="_blank" class="card color-4">
+    <div class="logo-area">
+      <img src="https://via.placeholder.com/60" alt="Logo">
+    </div>
+    <h2>Multimedia & Entertainment Hubs</h2>
+    <div class="description">
+      Advanced graphics for gaming and video editing. Full HD displays with vibrant colors. High-quality sound systems built right in.
+    </div>
+  </a>
+
+</div>
+
+</body>
+</html>
