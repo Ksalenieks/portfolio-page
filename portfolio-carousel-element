@@ -1,121 +1,103 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-  body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 10px; background-color: transparent; }
-  
-  /* Horizontal scroll container */
-  .carousel-container {
+  body { 
+    font-family: 'Montserrat', sans-serif; 
+    margin: 0; 
+    padding: 20px; 
+    background-color: transparent; 
+    overflow-x: hidden;
+  }
+
+  .carousel-wrapper {
     display: flex;
     overflow-x: auto;
-    gap: 15px;
-    padding-bottom: 15px;
-    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 10px 5px 30px 5px;
+    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
   }
 
-  /* Individual Card Styling */
+  /* Hide scrollbar */
+  .carousel-wrapper::-webkit-scrollbar { display: none; }
+
   .card {
-    min-width: 250px;
-    max-width: 250px;
-    height: 380px;
-    border-radius: 12px;
-    padding: 20px;
+    flex: 0 0 280px;
+    height: 420px; /* Adjusted height for Montserrat spacing */
+    border-radius: 15px;
+    padding: 25px;
     color: white;
-    text-decoration: none; /* Makes entire card clickable */
+    text-decoration: none;
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    scroll-snap-align: start;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
   }
 
-  .card:hover { transform: scale(1.02); }
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  }
 
-  .logo-area {
-    height: 60px;
-    margin-bottom: 15px;
+  /* Logo Area */
+  .logo-box {
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
   }
+  .logo-box img { max-width: 60%; max-height: 60%; filter: brightness(0) invert(1); }
 
-  .logo-area img { max-height: 100%; max-width: 100%; border-radius: 4px; }
-
+  /* Title - 50 symbols focus */
   h2 {
-    font-size: 1.4rem;
-    margin: 10px 0;
-    line-height: 1.2;
-    height: 3.6em; /* Limits to ~50-60 characters height */
+    font-size: 1.3rem;
+    margin: 0 0 15px 0;
+    line-height: 1.3;
+    font-weight: 700;
+    height: 3.9em; /* Ensures alignment */
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 
-  .description {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-top: auto;
-    /* Forces exactly 4 lines of text */
+  /* Description - Locked to 4 lines */
+  .desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    font-weight: 400;
+    opacity: 0.95;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 4; 
     -webkit-box-orient: vertical;
     overflow: hidden;
+    margin-top: auto;
   }
 
-  /* Individual Colors */
-  .color-1 { background-color: #6a1b9a; } /* Purple */
-  .color-2 { background-color: #546e7a; } /* Grey/Blue */
-  .color-3 { background-color: #c2185b; } /* Pink/Red */
-  .color-4 { background-color: #d32f2f; } /* Bright Red */
-  .color-5 { background-color: #e65100; } /* Orange */
+  /* Colors */
+  .c1 { background: #4158D0; background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%); }
+  .c2 { background: #0093E9; background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%); }
+  .c3 { background: #8EC5FC; background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%); }
+  .c4 { background: #FBAB7E; background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%); }
 
-  /* Hide scrollbar for clean look */
-  .carousel-container::-webkit-scrollbar { height: 6px; }
-  .carousel-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
 </style>
 </head>
 <body>
 
-<div class="carousel-container">
+<div class="carousel-wrapper">
 
-  <a href="YOUR_LINK_HERE" target="_blank" class="card color-1">
-    <div class="logo-area">
-      <img src="https://via.placeholder.com/60" alt="Logo">
+  <a href="#" target="_blank" class="card c1">
+    <div class="logo-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" alt="Logo">
     </div>
-    <h2>Optional Touch Screen Laptops</h2>
-    <div class="description">
-      Available in 12, 14, and 15-inch sizes. Optimized for high performance and daily tasks. Multitouch support included for all models.
-    </div>
-  </a>
-
-  <a href="YOUR_LINK_HERE" target="_blank" class="card color-2">
-    <div class="logo-area">
-      <img src="https://via.placeholder.com/60" alt="Logo">
-    </div>
-    <h2>Everyday Laptops for Home & School</h2>
-    <div class="description">
-      Great for students and remote work. Multitask with ease using the latest processors. Affordable styles for every budget and need.
-    </div>
-  </a>
-
-  <a href="YOUR_LINK_HERE" target="_blank" class="card color-3">
-    <div class="logo-area">
-      <img src="https://via.placeholder.com/60" alt="Logo">
-    </div>
-    <h2>On-the-Go Ultrabooks for Travel</h2>
-    <div class="description">
-      Super thin and light design. Extra-long battery life for long flights. Touch screen options available for creative professionals.
-    </div>
-  </a>
-
-  <a href="YOUR_LINK_HERE" target="_blank" class="card color-4">
-    <div class="logo-area">
-      <img src="https://via.placeholder.com/60" alt="Logo">
-    </div>
-    <h2>Multimedia & Entertainment Hubs</h2>
-    <div class="description">
-      Advanced graphics for gaming and video editing. Full HD displays with vibrant colors. High-quality sound systems built right in.
-    </div>
-  </a>
-
-</div>
-
-</body>
-</html>
+    <h2>Innovative Full-Stack Engineering Solutions</h2>
+    <div class="desc">
+      Building robust and scalable web applications using the latest industry standards. This includes
